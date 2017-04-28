@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+set -ex
+docker-compose run web bin/setup

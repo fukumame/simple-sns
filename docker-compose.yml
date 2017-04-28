@@ -1,0 +1,27 @@
+version: '2'
+services:
+  web: &web
+    command: bundle exec bin/rails s -b 0.0.0.0 -p 3000
+    build: .
+    volumes:
+      - .:/app
+      - bundle:/app/vendor/bundle
+    tty: true
+    stdin_open: true
+    environment:
+      DATABASE_URL: postgres://postgres:@db
+      WEB_CONCURRENCY: 1
+    ports:
+      - 3002:3000
+    depends_on:
+      - db
+  db:
+    image: postgres:9.5
+    ports:
+      - 5435:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  bundle:
+  # コンテナの削除後にもDatabaseのデータは残したいのでVolumeとして外出しにする
+  db_data:
