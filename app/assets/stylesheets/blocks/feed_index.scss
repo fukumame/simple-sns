@@ -1,0 +1,23 @@
+.feed-index {
+  &__header {
+    display: flex;
+  }
+
+  &__nickname {
+    flex: 1;
+  }
+
+  &__post-likes-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__like-button {
+    margin-right: 10px;
+  }
+
+  &__replies {
+    margin-top: 10px;
+  }
+}

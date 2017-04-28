@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    = render 'application/header_meta'
+  %body
+    .container.root-container
+      .row
+        .col-xs-11
+          = render 'application/content_header'
+      .row
+        .col-xs-offset-1.col-xs-10
+          = yield

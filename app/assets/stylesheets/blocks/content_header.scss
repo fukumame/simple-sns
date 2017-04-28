@@ -1,0 +1,10 @@
+.content-header {
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &__nickname {
+    margin-right: 20px;
+  }
+}

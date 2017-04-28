@@ -1,0 +1,4 @@
+%li.list-group-item.follower-index__container
+  .follower-index__nickname
+    = follower.nickname
+  = link_to 'See the Posts', user_posts_path(follower), class: 'btn btn-default user-index__posts-button'

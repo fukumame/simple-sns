@@ -1,0 +1,14 @@
+- content_for :title do
+  HOME
+.row
+  .col-xs-12
+    %h2
+      New Post
+      .new-post__container
+        = render 'feeds/new_post_form'
+.row
+  .col-xs-12
+    %h2
+      Post List
+    %ul.list-group#post-index
+      = render partial: 'feeds/post', collection: @posts

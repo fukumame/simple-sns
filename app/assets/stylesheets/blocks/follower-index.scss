@@ -1,0 +1,10 @@
+.follower-index {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nickname {
+    flex-grow: 1;
+  }
+}

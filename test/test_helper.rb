@@ -11,12 +11,11 @@ Capybara.javascript_driver = :poltergeist
 
 class ActiveSupport::TestCase
   # # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  # include FactoryGirl::Syntax::Methods
   # self.use_transactional_tests = false
   # # Add more helper methods to be used by all tests here...
   include CapybaraConfig
   include DatabaseCleanerConfig
   include FactoryGirlConfig
   include GroongaHelper
-
+  include HelperMethods
 end

@@ -1,0 +1,20 @@
+.panel.panel-default
+  .panel-heading.feed-index__header
+    %span.feed-index__nickname
+      @#{post.user.nickname}
+    %span.feed-index__date
+      = l post.created_at, format: :default
+  .panel-body
+    .feed-index__post-content
+      = post.content
+    .feed-index__post-likes-container.post-likes(data-post-id="#{post.id}")
+      = render 'feeds/post_favorites', post: post
+    .feed-index__replies
+      %p
+        Replies
+      .list-group.post-replies(data-post-id="#{post.id}")
+        = render partial: 'feeds/reply', collection: post.replies
+    .feed-index__new-reply-form
+      %p
+        New Reply
+      = render 'feeds/new_reply_form', post: post

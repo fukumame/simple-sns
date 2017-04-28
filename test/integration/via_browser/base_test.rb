@@ -6,9 +6,7 @@ class BaseTest < ActionDispatch::IntegrationTest
 
     test 'main' do
       u = create(:user)
-      assert_equal 'hoge@example.com', u.email
       visit 'http://localhost:3000/'
-      assert has_selector?('h1', text: 'Yay! You’re on Rails!')
     end
   end
 

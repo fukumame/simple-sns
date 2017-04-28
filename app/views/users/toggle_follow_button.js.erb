@@ -1,0 +1,7 @@
+$('[data-user-id="<%= @user.id %>"]').html(
+  "<%= escape_javascript(render 'follow_buttons', user: @user) %>"
+);
+
+$('#content-header-followees-link').html(
+  "<%= escape_javascript(render 'application/followees_link') %>"
+)

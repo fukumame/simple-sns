@@ -1,0 +1,8 @@
+- content_for :title do
+  #{@user.nickname}'s Posts
+%h1
+  #{@user.nickname}'s Posts
+%ul.list-group#post-index
+  = render partial: 'feeds/post', collection: @user.posts.order_by_recent
+.post-index__bottom-container
+  = link_to 'Back', :back, class: 'btn btn-default'

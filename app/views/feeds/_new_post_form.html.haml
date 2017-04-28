@@ -1,0 +1,5 @@
+= form_for Post.new, url: posts_path, remote: true do |f|
+  .form-group
+    = f.text_area :content, class: 'form-control', rows: 5, required: true, maxlength: 200
+  .new-post__button-container
+    = f.submit 'Post', class: 'btn btn-primary'

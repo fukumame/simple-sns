@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427235735) do
+ActiveRecord::Schema.define(version: 20170428075233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorite_posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_favorite_posts_on_post_id", using: :btree
+    t.index ["user_id", "post_id"], name: "index_favorite_posts_on_user_id_and_post_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_favorite_posts_on_user_id", using: :btree
+  end
 
   create_table "favorite_replies", force: :cascade do |t|
     t.integer  "reply_id"
@@ -21,7 +31,18 @@ ActiveRecord::Schema.define(version: 20170427235735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reply_id"], name: "index_favorite_replies_on_reply_id", using: :btree
+    t.index ["user_id", "reply_id"], name: "index_favorite_replies_on_user_id_and_reply_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_favorite_replies_on_user_id", using: :btree
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "followed_user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["followed_user_id"], name: "index_follows_on_followed_user_id", using: :btree
+    t.index ["user_id", "followed_user_id"], name: "index_follows_on_user_id_and_followed_user_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_follows_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -60,8 +81,12 @@ ActiveRecord::Schema.define(version: 20170427235735) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "favorite_posts", "posts"
+  add_foreign_key "favorite_posts", "users"
   add_foreign_key "favorite_replies", "replies"
   add_foreign_key "favorite_replies", "users"
+  add_foreign_key "follows", "users"
+  add_foreign_key "follows", "users", column: "followed_user_id"
   add_foreign_key "posts", "users"
   add_foreign_key "replies", "posts"
   add_foreign_key "replies", "users"

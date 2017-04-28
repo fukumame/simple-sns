@@ -1,0 +1,37 @@
+$gray-line-color: #b0b0b0;
+
+ul, li {
+  margin: 0;
+}
+
+.root-container {
+  margin-top: 20px;
+}
+
+.list {
+  &--no-dot {
+    list-style:none;
+  }
+
+  &--inline {
+    display: flex;
+    &__item {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    &__item--separated {
+      display: inline-block;
+      padding: 0 10px;
+      &:not(:last-child){
+        border-right: 1px solid $gray-line-color;
+      }
+    }
+  }
+}
+
+.link--active {
+  color: white;
+  background-color: #2196f3;
+  padding: 1px 8px;
+  border-radius: 5px;
+}

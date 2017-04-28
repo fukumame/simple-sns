@@ -1,0 +1,5 @@
+= form_for Reply.new, url: post_replies_path(post.id), remote: true do |f|
+  .form-group
+    = f.text_area :content, class: 'form-control reply-text-area', rows: 2, maxlength: 200 , required: true ,data: {'post-id' => post.id }
+  .new-reply__button-container
+    = f.submit 'Reply', class: 'btn btn-primary'

@@ -1,0 +1,6 @@
+%li.list-group-item.user-index__item-container
+  .user-index__nickname
+    = user.nickname
+  = link_to 'See the Posts', user_posts_path(user), class: 'btn btn-default user-index__posts-button'
+  .user-index__follow-button(data-user-id="#{user.id}")
+    = render 'follow_buttons', user: user

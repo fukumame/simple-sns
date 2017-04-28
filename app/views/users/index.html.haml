@@ -1,0 +1,8 @@
+- content_for :title do
+  User Index
+%h1
+  User Index
+.row
+  .col-xs-12
+    %ul.list-group
+      = render partial: 'user', collection: @users

@@ -1,0 +1,4 @@
+$('.post-replies[data-post-id="<%= @post.id %>"]').html(
+    "<%= escape_javascript(render partial: 'feeds/reply', collection: @post.replies) %>"
+);
+$('.reply-text-area[data-post-id="<%= @post.id %>"]').val('')

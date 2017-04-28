@@ -1,0 +1,3 @@
+$('.reply-like[data-reply-id="<%= @reply.id %>"]').html(
+    "<%= escape_javascript(render 'feeds/reply_favorites', reply: @reply) %>"
+);

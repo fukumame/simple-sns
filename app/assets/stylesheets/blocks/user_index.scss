@@ -1,0 +1,14 @@
+.user-index {
+  &__item-container {
+    display: flex;
+  }
+  &__nickname {
+    width: 90%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__posts-button {
+    margin-right: 10px;
+  }
+}

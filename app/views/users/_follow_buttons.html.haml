@@ -1,0 +1,4 @@
+- if current_user.already_followed?(user)
+  = link_to 'Unfollow', unfollow_user_path(user), remote: true, class: 'btn btn-default'
+- else
+  = link_to 'Follow', follow_user_path(user), remote: true, class: 'btn btn-default'

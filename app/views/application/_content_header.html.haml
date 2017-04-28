@@ -1,0 +1,14 @@
+.content-header__container
+  - if user_signed_in?
+    %ul.list--no-dot.list--inline
+      %li.list--inline__item--separated
+        = link_to icon('home', 'HOME'), root_path, class: active_class('feeds')
+      %li.list--inline__item--separated
+        = link_to "Followers: #{current_user.followers.length}", followers_path, class: active_class('followers')
+      %li.list--inline__item--separated#content-header-followees-link
+        = render 'application/followees_link'
+      %li.list--inline__item--separated
+        UserName: #{current_user.nickname}
+    = link_to 'logout', destroy_user_session_path, class: 'btn btn-default', method: :delete
+  - else
+    = link_to 'Sign In', new_user_session_path, class: 'btn btn-default'

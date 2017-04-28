@@ -1,0 +1,7 @@
+.list-group-item.reply__container
+  .reply__content
+    = reply.content
+  .reply__sub-info
+    = "(@#{reply.user.nickname} | #{l reply.created_at, format: :default})"
+  .reply__like-container.reply-like(data-reply-id="#{reply.id}")
+    = render 'feeds/reply_favorites', reply: reply

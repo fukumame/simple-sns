@@ -8,6 +8,7 @@ ruby '2.3.1'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'gon'
 gem 'haml-rails'
 gem 'honoka-rails', '>= 3.3.6.3'
@@ -18,7 +19,6 @@ gem 'pg', '~> 0.20.0'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
-gem 'rb-readline'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 

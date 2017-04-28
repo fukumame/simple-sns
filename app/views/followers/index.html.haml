@@ -1,0 +1,8 @@
+- content_for :title do
+  #{current_user.nickname}'s Followers
+%h1
+  #{current_user.nickname}'s Followers
+.row
+  .col-xs-12
+    %ul.list-group
+      = render partial: 'followers/follower', collection: @followers
