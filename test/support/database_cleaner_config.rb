@@ -3,6 +3,7 @@ module DatabaseCleanerConfig
   require 'database_cleaner'
   seed_tables = %w()
   DatabaseCleaner.clean_with :truncation, except: seed_tables
+  # SeedFu.seed
   DatabaseCleaner.strategy = :transaction
 
   def self.included(base)

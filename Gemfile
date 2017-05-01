@@ -20,6 +20,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 gem 'sass-rails', '~> 5.0'
+gem 'seed-fu', '~> 2.3'
 gem 'uglifier', '>= 1.3.0'
 
 
@@ -40,6 +41,7 @@ end
 
 group :test do
   gem 'capybara', '2.11.0', require: false
+  gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'poltergeist', '1.12.0',require: false
   gem "test-unit-rails", require: false

@@ -18,4 +18,6 @@ class ActiveSupport::TestCase
   include FactoryGirlConfig
   include GroongaHelper
   include HelperMethods
+
+  fixtures :all
 end

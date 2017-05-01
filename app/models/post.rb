@@ -5,5 +5,4 @@ class Post < ApplicationRecord
   scope :order_by_recent, -> { order(created_at: :desc) }
 
   validates :content, presence: true, length: { maximum: 200 }
-
 end
