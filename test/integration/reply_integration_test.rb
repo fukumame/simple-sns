@@ -26,8 +26,8 @@ class ReplyIntegrationTest < ActionDispatch::IntegrationTest
     assert_equal result_reply.id, favorites.first.reply.id
 
     #重複してLikeを登録すると、エラーが発生すること
-    assert_raises Exceptions::DuplicateFavoritePostError do
-      get like_post_path(result_post), xhr: true
+    assert_raises Exceptions::DuplicateFavoriteReplyError do
+      get like_reply_path(result_reply), xhr: true
     end
 
     # replyのunlikeによって、favoritesが削除されること
