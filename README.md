@@ -1,24 +1,32 @@
-# README
+# Abount this apps
+- This is a simple sns service using rails5
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Main features
+- User registration
+- Post a text to feeds.
+- Follow / Unfollow users.
+- Like / Unlike to posts and replies.
 
-Things you may want to cover:
+# How to install
+- This service is executable on docker container.
 
-* Ruby version
+### Docker install
+- for mac user
+  - https://docs.docker.com/docker-for-mac/
+- for windows user
+  - https://docs.docker.com/docker-for-windows/
 
-* System dependencies
+### Deploy the container on docker
+- The following commands should be executed to deploy this application as a container on docker
 
-* Configuration
+```
+cd /path/to/your/workspace
+git clone https://github.com/fukumame/simple-sns.git
+cd simple-sns
+./bin/docker-setup
+docker-compose up
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Open the application with Browser
+- To access this application, Open the following URL with any modern browser
+  - http://localhost:3000
