@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :retrieve_post, only: [:like, :unlike]
 
   def index
     @user = User.find(params[:user_id])
@@ -12,7 +13,6 @@ class PostsController < ApplicationController
   end
 
   def like
-    @post = Post.find(params[:id])
     validate_already_liked(@post)
     favotite_post = current_user.favorite_posts.build(post: @post)
     favotite_post.save!
@@ -20,13 +20,16 @@ class PostsController < ApplicationController
   end
 
   def unlike
-    @post = Post.find(params[:id])
     favotite_post = current_user.favorite_posts.find_by(post: @post)
     favotite_post.destroy
     render 'posts/toggle_post_like_button'
   end
 
   private
+
+  def retrieve_post
+    @post = Post.find(params[:id])
+  end
 
   def validate_already_liked(post)
     favorite_post = current_user.favorite_posts.find_by(post_id: post.id)

@@ -1,4 +1,5 @@
 class RepliesController < ApplicationController
+  before_action :retrieve_reply, only: [:like, :unlike]
 
   def create
     @post = Post.find(params[:post_id])
@@ -8,7 +9,6 @@ class RepliesController < ApplicationController
   end
 
   def like
-    @reply = Reply.find(params[:id])
     validate_already_liked(@reply)
     favorite_reply = current_user.favorite_replies.build(reply: @reply)
     favorite_reply.save!
@@ -16,13 +16,16 @@ class RepliesController < ApplicationController
   end
 
   def unlike
-    @reply = Reply.find(params[:id])
     favorite_reply = current_user.favorite_replies.find_by(reply: @reply)
     favorite_reply.destroy
     render 'replies/toggle_reply_like_button'
   end
 
   private
+
+  def retrieve_reply
+    @reply = Reply.find(params[:id])
+  end
 
   def validate_already_liked(reply)
     favorite_reply = current_user.favorite_replies.find_by(reply_id: reply.id)
