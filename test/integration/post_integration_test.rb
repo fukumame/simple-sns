@@ -26,7 +26,7 @@ class PostIntegrationTest < ActionDispatch::IntegrationTest
     assert_equal result_post.id, favorites[0].post.id
 
     # 重複してLikeを登録するとExceptionが発生すること
-    assert_raises Exceptions::DuplicateFavoritePostError do
+    assert_raises ActiveRecord::RecordInvalid do
       get like_post_path(result_post), xhr: true
     end
 

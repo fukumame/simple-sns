@@ -24,7 +24,7 @@ class UserFollowTest < ActionDispatch::IntegrationTest
 
     test '重複してFollower登録するとExceptionが発生すること' do
       get follow_user_path(@followee), xhr: true
-      assert_raises Exceptions::DuplicateFollowedUserError do
+      assert_raises ActiveRecord::RecordInvalid do
         get follow_user_path(@followee), xhr: true
       end
     end

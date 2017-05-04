@@ -26,7 +26,7 @@ class ReplyIntegrationTest < ActionDispatch::IntegrationTest
     assert_equal result_reply.id, favorites.first.reply.id
 
     #重複してLikeを登録すると、エラーが発生すること
-    assert_raises Exceptions::DuplicateFavoriteReplyError do
+    assert_raises ActiveRecord::RecordInvalid do
       get like_reply_path(result_reply), xhr: true
     end
 

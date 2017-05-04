@@ -9,7 +9,6 @@ class RepliesController < ApplicationController
   end
 
   def like
-    validate_already_liked(@reply)
     favorite_reply = current_user.favorite_replies.build(reply: @reply)
     favorite_reply.save!
     render 'replies/toggle_reply_like_button'
@@ -25,11 +24,6 @@ class RepliesController < ApplicationController
 
   def retrieve_reply
     @reply = Reply.find(params[:id])
-  end
-
-  def validate_already_liked(reply)
-    favorite_reply = current_user.favorite_replies.find_by(reply_id: reply.id)
-    raise Exceptions::DuplicateFavoriteReplyError if favorite_reply.present?
   end
 
   def reply_params
