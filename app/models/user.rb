@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :all_followers, through: :follows_from_follower, source: :user
 
   before_create do |user|
+    # feed上に自分自身の投稿も表示したいため、userの作成時に自動的に自分自身をfollowするようにする。
     follow_myself(user)
   end
 
